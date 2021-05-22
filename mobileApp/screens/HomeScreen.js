@@ -30,7 +30,7 @@ export default function HomeScreen() {
 
   const onSend = messages => {
     console.log(messages);
-    socket.current.emit("message", messages[0].text);
+   // socket.current.emit("message", messages[0].text);
   };
 
   return (
