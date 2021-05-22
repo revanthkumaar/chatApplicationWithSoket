@@ -24,6 +24,12 @@ export default function HomeScreen() {
     setRecvMessages(prevState => GiftedChat.append(prevState, messages));
   };
 
+  const joinChat = username => {
+    
+    socket.current.emit("join",username);
+    setHasJoined(true);
+  }
+
   return (
     <View style={{ flex: 1 }}>
     {
