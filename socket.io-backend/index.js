@@ -1,13 +1,14 @@
-const io = require("socket.io")()
+const io = require("socket.io")();
+const messageHandler = require("./handlers/message.handler");
 
+let currentUserId = 2;
+const userIds = {};
 
-io.on("connection",() => {
-    console.log('server is active');
-    //event listener 
-    socket.on('message', message => {
-        console.log(message)
-        io.emit("message",message)
-    })
-})
+io.on("connection", socket => {
+  console.log("a user connected!");
+  console.log(socket.id);
+  userIds[socket.id] = currentUserId++;
+  messageHandler.handleMessage(socket, userIds);
+});
 
 io.listen(3001);
