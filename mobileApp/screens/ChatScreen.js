@@ -8,7 +8,7 @@ import {useDispatch,useSelector} from "react-redux";
 
 
 
-export default function ChatScreen({}){
+export default function ChatScreen({navigation}){
 const dispatch = useDispatch();
   const selfUser = useSelector(state => state.selfUser);
   const conversations = useSelector(state => state.conversations);
